@@ -7,6 +7,10 @@ class GestionnaireDeReservation
 {
 	public function create(Customer $customer, Restaurant $restaurant, DateTime $date, $nbCouvert)
 	{
+		if (mb_strlen($customer->getName()) === 0 || !$restaurant->isOpen() || mb_strlen($restaurant->getName()) === 0) {
+			throw New \LogicException();
+		}
 
+		return new Reservation($customer, $restaurant, $date, $nbCouvert);
 	}
 }

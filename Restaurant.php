@@ -19,10 +19,10 @@ class Restaurant
     /**
      * @return string
      */
-    public function getName($name)
+    public function getName()
     {
-        $this->name = $name;
-        return $this;
+        return $this->name;
+
     }
 
     protected $closed = false;
